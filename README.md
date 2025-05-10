@@ -13,6 +13,7 @@ This project implements a question-answering chatbot API that processes user inp
 - API endpoints for chat interaction
 - LLM (Large Language Model) integration
 - Comprehensive test suite
+- Swagger UI for API documentation and testing
 
 ## Project Structure
 
@@ -112,6 +113,59 @@ qa-chatbot-api/
 2. **Access the API**
    - The API will be available at: http://localhost:8000 (or the port specified in your .env)
    - You can test it using curl, Postman, or any API client
+   - Swagger UI is available at: http://localhost:8000/docs
+
+### API Endpoints
+
+#### Using Swagger UI
+
+The API includes Swagger UI documentation that allows you to explore and test all available endpoints directly from your browser:
+
+1. Start the server as described above
+2. Open your browser and navigate to http://localhost:8000/docs
+3. You'll see all available endpoints with their descriptions, parameters, and response models
+
+#### Key Endpoints
+
+1. **Health Check**
+   - **Endpoint**: `/health`
+   - **Method**: GET
+   - **Description**: Check if the API is running
+   - **Via Swagger UI**: Click on the endpoint, then click "Try it out" followed by "Execute"
+
+2. **Ask Question**
+   - **Endpoint**: `/ask`
+   - **Method**: POST
+   - **Description**: Send a question to get an answer from the chatbot
+   - **Via Swagger UI**: 
+     - Click on the `/ask` endpoint
+     - Click "Try it out"
+     - Enter your question in the request body:
+       ```json
+       {
+         "question": "What is artificial intelligence?"
+       }
+       ```
+     - Click "Execute"
+
+3. **Get Chat History**
+   - **Endpoint**: `/history`
+   - **Method**: GET
+   - **Description**: Retrieve chat history
+   - **Parameters**: 
+     - `limit` (optional): Number of recent conversations to retrieve
+   - **Via Swagger UI**: Click on the endpoint, adjust any parameters, then click "Try it out" followed by "Execute"
+
+4. **Delete Chat History**
+   - **Endpoint**: `/history/{id}`
+   - **Method**: DELETE
+   - **Description**: Delete a specific chat history entry
+   - **Parameters**:
+     - `id`: ID of the chat history entry to delete
+   - **Via Swagger UI**:
+     - Click on the endpoint
+     - Enter the ID in the parameter field
+     - Click "Try it out" followed by "Execute"
 
 ### Testing
 
@@ -160,6 +214,13 @@ Follow the setup instructions above.
 2. Follow the setup instructions
 3. Configure a production web server (like Nginx or Apache) to proxy requests to the application
 4. Set up a process manager (like Supervisord or systemd) to keep the application running
+
+## API Authentication
+
+For protected endpoints, you'll need to include an API key in your requests:
+
+- **Via Swagger UI**: Some endpoints may require authentication. Look for the "Authorize" button at the top of the Swagger UI page.
+- **Via HTTP request**: Include your API key in the header: `X-API-Key: your_api_key_here`
 
 ## Contributing
 
