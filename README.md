@@ -19,7 +19,7 @@ This project implements a question-answering chatbot API that processes user inp
 
 ```
 qa-chatbot-api/
-├── app/
+├── venv/app/
 │   ├── __pycache__/
 │   ├── chat.py          # Core chat functionality
 │   ├── llm.py           # Language model integration
@@ -27,11 +27,10 @@ qa-chatbot-api/
 ├── include/             # Additional resources
 ├── lib/                 # Library dependencies
 ├── scripts/             # Utility scripts
-├── test/
+├── venv/test/
 │   ├── __pycache__/
 │   ├── .pytest_cache/
 │   └── test_chat.py     # Test cases for chat functionality
-├── venv/                # Virtual environment (not tracked in git)
 ├── .env                 # Environment variables (not tracked in git)
 ├── list.py              # Utility functions
 ├── pyenv.cfg            # Python environment configuration
