@@ -157,6 +157,7 @@ async def general_exception_handler(request: Request, exc: Exception):
         content={"detail": "An unexpected error occurred"}
     )
 
+
 # Startup and shutdown events
 @app.on_event("startup")
 async def startup():
@@ -194,7 +195,8 @@ async def health_check():
     Returns:
         dict: A dictionary containing the health status of the API
     """
-    return {"status": "healthy"}
+    return {"status": "heaaaalthy"}
+
 
 # Ask endpoint with improved error handling and documentation
 @app.post(
@@ -247,6 +249,7 @@ async def health_check():
         }
     }
 )
+
 async def ask_question(item: Question):
     """
     Ask a question to the chatbot.
